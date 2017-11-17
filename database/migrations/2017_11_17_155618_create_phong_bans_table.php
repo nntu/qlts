@@ -14,7 +14,8 @@ class CreatePhongBansTable extends Migration
     public function up()
     {
         Schema::create('phong_bans', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('MaPhong')->primary();
+            $table->string('TenPhong');
             $table->timestamps();
         });
     }
