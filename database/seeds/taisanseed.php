@@ -17,13 +17,15 @@ class taisanseed extends Seeder
 
 
         //
-        $data = Excel::load('database/seeds/taisan.xlsx', function ($reader) {
-        })->get();
+        $data = Excel::load(
+            'database/seeds/taisan.xlsx', function ($reader) {
+            }
+        )->get();
         if (!empty($data) && $data->count()) {
-         // reader methods
+            // reader methods
             foreach ($data as $key => $valueS) {
                 foreach ($valueS as $value) {
-                   // dd($value);
+                    // dd($value);
                     $insert[] = ['mats' => $value->mats,
                     'tents' => $value->tents,
                     'ngayduavaosd' => $value->ngaysd,
