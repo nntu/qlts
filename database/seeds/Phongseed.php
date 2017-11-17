@@ -15,27 +15,20 @@ class Phongseed extends Seeder
     {
        
         //
-        $data = Excel::load('database/seeds/phong.xlsx', function($reader) {
-                           
+        $data = Excel::load('database/seeds/phong.xlsx', function ($reader) {
         })->get();
         
-        if(!empty($data) && $data->count()){
+        if (!empty($data) && $data->count()) {
          // reader methods
-         foreach ($data as $key => $value) {
-            
+            foreach ($data as $key => $value) {
                                 $insert[] = ['MaPhong' => $value->maphong, 'TenPhong' => $value->tenphong];
-            
-                            }
+            }
                                         
-                            if(!empty($insert)){
+            if (!empty($insert)) {
+                DB::table('phong_bans')->insert($insert);
             
-                                DB::table('phong_bans')->insert($insert);
-            
-                                dd('Insert Record successfully.');
-            
-                            }
-        
+                dd('Insert Record successfully.');
+            }
         }
     }
-
 }

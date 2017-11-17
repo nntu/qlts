@@ -4,7 +4,6 @@ use Illuminate\Database\Seeder;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Database\Eloquent\Model;
 
-
 class taisanseed extends Seeder
 {
     /**
@@ -18,34 +17,28 @@ class taisanseed extends Seeder
 
 
         //
-        $data = Excel::load('database/seeds/taisan.xlsx', function($reader) {
-            
-               
+        $data = Excel::load('database/seeds/taisan.xlsx', function ($reader) {
         })->get();
-        if(!empty($data) && $data->count()){
+        if (!empty($data) && $data->count()) {
          // reader methods
-         foreach ($data as $key => $valueS) {
-                        foreach($valueS as $value){
-                           // dd($value);
-                                $insert[] = ['mats' => $value->mats,
-                                 'tents' => $value->tents,
-                                 'ngayduavaosd' => $value->ngaysd,
-                                 'maphong' => $value->maphong,
-                                 'maloaits' => $value->maloai,
-                                 'Serrial' => $value->serial == null ? "" : $value->serial
-                                ];
-            
-                            }
+            foreach ($data as $key => $valueS) {
+                foreach ($valueS as $value) {
+                   // dd($value);
+                    $insert[] = ['mats' => $value->mats,
+                    'tents' => $value->tents,
+                    'ngayduavaosd' => $value->ngaysd,
+                    'maphong' => $value->maphong,
+                    'maloaits' => $value->maloai,
+                    'Serrial' => $value->serial == null ? "" : $value->serial
+                    ];
+                }
                             
-                            if(!empty($insert)){
+                if (!empty($insert)) {
+                    DB::table('tai_sans')->insert($insert);
             
-                                DB::table('tai_sans')->insert($insert);
-            
-                                dd('Insert Record successfully.');
-            
-                            }
-                        }
-        
+                    dd('Insert Record successfully.');
+                }
+            }
         }
     }
 }
