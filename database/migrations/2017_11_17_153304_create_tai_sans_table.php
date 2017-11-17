@@ -19,7 +19,7 @@ class CreateTaiSansTable extends Migration
             $table->string('MaLoaiTS');
             $table->datetime('NgayDuaVaoSD');
             $table->string('MaPhong');
-            $table->string('Serrial');
+            $table->string('Serrial')->nullable();
             $table->timestamps();
         });
     }
