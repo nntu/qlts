@@ -13,7 +13,7 @@ class TaiSan extends Model
    //"created_at" datetime null, "updated_at" datetime null, primary key ("MaTS"))
 
 
-    protected $table = 'PhongBan';
+    protected $table = 'Tai_Sans';
 
     protected $fillable = ['MaTS', 'TenTS', 'MaLoaiTS', 'NgayDuaVaoSD', 'Serrial'];
 }

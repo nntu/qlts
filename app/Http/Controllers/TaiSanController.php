@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\TaiSan;
 use Illuminate\Http\Request;
 
 class TaiSanController extends Controller
@@ -14,6 +15,33 @@ class TaiSanController extends Controller
     public function index()
     {
         //
+        $taisans = TaiSan::orderBy("MaTS",'DESC')->paginate(5);
+
+
+        $response = [
+
+            'pagination' => [
+
+                'total' => $taisans->total(),
+
+                'per_page' => $taisans->perPage(),
+
+                'current_page' => $taisans->currentPage(),
+
+                'last_page' => $taisans->lastPage(),
+
+                'from' => $taisans->firstItem(),
+
+                'to' => $taisans->lastItem()
+
+            ],
+
+            'data' => $taisans
+
+        ];
+
+
+        return response()->json($response);
     }
 
     /**

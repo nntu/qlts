@@ -8,7 +8,7 @@ class PhongBan extends Model
 {
     //
 
-    protected $table = 'PhongBan'; 
+    protected $table = 'Phong_Bans';
     
     protected $fillable = ['MaPhong', 'TenPhong']; 
 }
