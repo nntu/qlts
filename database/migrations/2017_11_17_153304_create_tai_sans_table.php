@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateTaiSansTable extends Migration
 {
@@ -17,8 +17,7 @@ class CreateTaiSansTable extends Migration
             $table->string('MaTS')->primary();
             $table->string('TenTS');
             $table->string('MaLoaiTS');
-            $table->datetime('NgayDuaVaoSD');
-            $table->string('MaPhong');
+            $table->datetime('NgayDuaVaoSD');         
             $table->string('Serrial')->nullable();
             $table->timestamps();
         });
