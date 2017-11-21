@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLoaiTSTable extends Migration
+class CreateNhomTSTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateLoaiTSTable extends Migration
      */
     public function up()
     {
-        Schema::create('loai_ts', function (Blueprint $table) {
-            $table->string('MaLTS')->primary();
-            $table->string('TenLTS');
+        Schema::create('nhom_ts', function (Blueprint $table) {
+            $table->string('MaNhomTS')->primary();
+            $table->string('TenNhomTS');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateLoaiTSTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('loai_ts');
+        Schema::dropIfExists('nhom_ts');
     }
 }

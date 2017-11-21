@@ -16,7 +16,7 @@ class CreateTaiSansTable extends Migration
         Schema::create('tai_sans', function (Blueprint $table) {
             $table->string('MaTS')->primary();
             $table->string('TenTS');
-            $table->string('MaLoaiTS');
+            $table->string('MaNhomTS');
             $table->datetime('NgayDuaVaoSD');         
             $table->string('Serrial')->nullable();
             $table->timestamps();
