@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('taisan','TaiSanController');
+Route::get('taisan/getIndexData', 'TaiSanController@getIndexData')->name('taisan/getIndexData');

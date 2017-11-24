@@ -4,9 +4,24 @@ namespace App\Http\Controllers;
 
 use App\TaiSan;
 use Illuminate\Http\Request;
-
+ 
 class TaiSanController extends Controller
 {
+
+  
+    
+/**
+ * Process datatables ajax request.
+ *
+ * @return \Illuminate\Http\JsonResponse
+ */
+public function getIndexData()
+{
+    $taisans =TaiSan::select(['MaTS', 'TenTS', 'NgayDuaVaoSD', 'Serrial']);
+    return \DataTables::of($taisans)->make(true);
+}
+
+
     /**
      * Display a listing of the resource.
      *
@@ -14,34 +29,7 @@ class TaiSanController extends Controller
      */
     public function index()
     {
-        //
-        $taisans = TaiSan::orderBy("MaTS",'DESC')->paginate(5);
-
-
-        $response = [
-
-            'pagination' => [
-
-                'total' => $taisans->total(),
-
-                'per_page' => $taisans->perPage(),
-
-                'current_page' => $taisans->currentPage(),
-
-                'last_page' => $taisans->lastPage(),
-
-                'from' => $taisans->firstItem(),
-
-                'to' => $taisans->lastItem()
-
-            ],
-
-            'data' => $taisans
-
-        ];
-
-
-        return response()->json($response);
+        return view('taisan.index');
     }
 
     /**
